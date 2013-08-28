@@ -26,7 +26,7 @@ public class TileTestRenderer extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float) x, (float) y, (float) z);
 		GL11.glRotatef(0F, 0F, 0F, 0F);
 		
-		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.MODEL_BUSWAY);
+		FMLClientHandler.instance().getClient().renderEngine.bindTexture(Textures.MODEL_TEST);
 		
 		model.renderPart("test");
 		

@@ -5,9 +5,11 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import testmod.TestMod;
+import testmod.lib.GuiIds;
 import testmod.lib.Reference;
 import testmod.lib.RenderIds;
 import testmod.lib.Strings;
@@ -59,9 +61,12 @@ public class BlockTileTest extends BlockContainerTM {
 	}
 	
 	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IconRegister iconRegister) {
-
-		iconRegister.registerIcon(Reference.MOD_ID.toLowerCase() + ":" + Strings.BLOCK_TE_TEST_NAME);
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int i, float a, float b, float c) {
+		player.openGui(Reference.MOD_ID, GuiIds.TEST, world, x, y, z);
+		return true;
 	}
+	
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister iconRegister) {}
 }
